@@ -1,0 +1,58 @@
+{% extends 'predictor/base.html' %}
+{% block title %}Home - SU ML Predictor{% endblock %}
+{% block content %}
+<div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-gray-800">SU ML Predictor</h2>
+    <p class="text-gray-600 mt-2">Empowering research with machine learning models from Biological Science students.</p>
+</div>
+
+<!-- Microbiology Department -->
+<section class="mb-16">
+    <div class="border-b-2 border-green-200 pb-2 mb-6">
+        <h3 class="text-2xl font-semibold text-green-800">🧫 Microbiology Department</h3>
+        <p class="text-gray-500">Leveraging machine learning to detect pathogens in poultry products.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Salmonella Card -->
+        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 border border-gray-100">
+            <h4 class="text-xl font-medium text-gray-800">Salmonella Prediction</h4>
+            <p class="text-gray-600 mt-2 text-sm">Assess Salmonella risk in the egg supply chain using biochemical and environmental data.</p>
+            <a href="{% url 'predictor:salmonella' %}" class="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg text-sm font-medium">Try Now →</a>
+        </div>
+        <!-- E. coli Card -->
+        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 border border-gray-100">
+            <h4 class="text-xl font-medium text-gray-800">E. coli Prediction</h4>
+            <p class="text-gray-600 mt-2 text-sm">Classify eggs as E. coli positive or negative based on microbiological tests.</p>
+            <a href="{% url 'predictor:ecoli' %}" class="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg text-sm font-medium">Try Now →</a>
+        </div>
+        <!-- S. aureus Card -->
+        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 border border-gray-100">
+            <h4 class="text-xl font-medium text-gray-800">S. aureus Prediction</h4>
+            <p class="text-gray-600 mt-2 text-sm">Detect Staphylococcus aureus contamination using coagulase and other tests.</p>
+            <a href="{% url 'predictor:saureus' %}" class="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg text-sm font-medium">Try Now →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Biochemistry Department -->
+<section>
+    <div class="border-b-2 border-blue-200 pb-2 mb-6">
+        <h3 class="text-2xl font-semibold text-blue-800">🧪 Biochemistry Department</h3>
+        <p class="text-gray-500">Predictive analytics for egg production and biochemical processes.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Egg Production Card -->
+        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 border border-gray-100">
+            <h4 class="text-xl font-medium text-gray-800">Egg Production Predictor</h4>
+            <p class="text-gray-600 mt-2 text-sm">Predict daily egg yield based on farm management and environmental factors.</p>
+            <a href="{% url 'predictor:egg' %}" class="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-sm font-medium">Try Now →</a>
+        </div>
+        <!-- Biomass Card -->
+        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 border border-gray-100">
+            <h4 class="text-xl font-medium text-gray-800">Biomass Yield Predictor</h4>
+            <p class="text-gray-600 mt-2 text-sm">Estimate biomass weight from fermentation conditions (time, nanoparticle conc., C/N ratio).</p>
+            <a href="{% url 'predictor:biomass' %}" class="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-sm font-medium">Try Now →</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

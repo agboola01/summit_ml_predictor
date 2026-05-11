@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SU ML Predictor{% endblock %}</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-gray-50">
+    <header class="bg-green-700 text-white py-4 shadow">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-bold">SU ML Predictor</h1>
+            <p class="text-sm">Biological Science — Microbiology & Biochemistry</p>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-gray-100 border-t mt-12 py-6 text-center text-gray-600 text-sm">
+        © 2025 Summit University, College of Applied and Natural Sciences (CONAS).<br>
+        Microbiology & Biochemistry Departments.
+    </footer>
+</body>
+</html>

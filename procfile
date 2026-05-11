@@ -1,0 +1,1 @@
+web: gunicorn summit_ml_predictor.wsgi --log-file -
