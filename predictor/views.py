@@ -49,15 +49,30 @@ def _classify(request, model_name, template_name):
         if form.is_valid():
             input_data = _build_micro_input(form.cleaned_data)
             pred, proba = _encode_and_predict(input_data, model_name)
+
+            # Official tone
+            pathogen_map = {
+                'salmonella_model': 'Salmonella',
+                'ecoli_model': 'Escherichia coli (E. coli)',
+                'saureus_model': 'Staphylococcus aureus'
+            }
+            pathogen_name = pathogen_map.get(model_name, model_name)
+            result_sentence = (
+                f"The specimen tested <strong>{'Positive' if pred == 1 else 'Negative'}</strong> "
+                f"for {pathogen_name}."
+            )
+            confidence = round(proba * 100) if proba is not None else None
+
             return render(request, 'predictor/result.html', {
-                'prediction': pred,
-                'probability': round(proba, 2) if proba is not None else None,
                 'model_name': model_name.replace('_',' ').title(),
+                'prediction': pred,
+                'probability': round(proba, 4) if proba is not None else None,
+                'result_sentence': result_sentence,
+                'confidence': confidence,
             })
     else:
         form = MicrobiologyForm()
     return render(request, template_name, {'form': form})
-
 def salmonella_predict(request):
     return _classify(request, 'salmonella_model', 'predictor/salmonella_form.html')
 def ecoli_predict(request):
