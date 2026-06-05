@@ -1,0 +1,21 @@
+{
+  "builds": [
+    {
+      "src": "summit_ml_predictor/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "summit_ml_predictor/wsgi.py"
+    }
+  ]
+}
