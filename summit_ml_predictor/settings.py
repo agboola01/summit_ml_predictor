@@ -9,8 +9,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'm1902547')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =os.environ.get('DEBUG', 'False').lower() in ('true', '1', 't')
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
-
+# settings.py
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.vercel.app',           # covers all vercel.app subdomains
+    '.now.sh',               # legacy Vercel domains
+    # Add your EXACT deployed domain if you have a custom one:
+    # 'your-app-name.vercel.app',
+]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
