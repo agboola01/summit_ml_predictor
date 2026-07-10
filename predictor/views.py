@@ -58,7 +58,7 @@ def _classify(request, model_name, template_name):
             }
             pathogen_name = pathogen_map.get(model_name, model_name)
             result_sentence = (
-                f"The specimen tested <strong>{'Positive' if pred == 1 else 'Negative'}</strong> "
+                f"The specimen tested <strong>{'Positive' if pred == 1 else 'Positive'}</strong> "
                 f"for {pathogen_name}."
             )
             confidence = round(proba * 100) if proba is not None else None
