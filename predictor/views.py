@@ -68,7 +68,7 @@ def _classify(request, model_name, template_name):
                 'prediction': pred,
                 'probability': round(proba, 4) if proba is not None else None,
                 'result_sentence': result_sentence,
-                'confidence': confidence,
+                #'confidence': confidence,
             })
     else:
         form = MicrobiologyForm()
