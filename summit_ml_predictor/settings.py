@@ -35,6 +35,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line for WhiteNoise
 ]
 
 ROOT_URLCONF = 'summit_ml_predictor.urls'
@@ -80,7 +81,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'predictor' / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # Add this line for WhiteNoise
 # Custom paths
 DATA_DIR = BASE_DIR / 'data'
 MODEL_DIR = BASE_DIR / 'predictor' / 'ml_models'
